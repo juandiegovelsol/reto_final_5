@@ -1,38 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .App {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f3f3;
+  height: 100vh;
+  width: 100vw;
+  overflow: scroll;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.CardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 90%;
+  width: 90%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.PodcastImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95%;
+  width: 50%;
+  max-height: 585px;
+  max-width: 585px;
+  overflow: hidden;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.podcastImageImg {
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
+}
+.PodcastList {
+  height: 90%;
+  width: 50%;
+  max-height: 500px;
+  max-width: 500px;
+  border-radius: 0px 25px 25px 0px;
+  background-color: white;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding-left: 5%;
+}
+.PodcastListTitle {
+  width: 80%;
+  text-align: left;
+}
+.PodcastListItem {
+  width: auto;
+  display: flex;
+  justify-content: left;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.PodcastListItem:hover,
+.PodcastListItem:focus {
+  cursor: pointer;
+  text-decoration: underline;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.PodcastListItemCheckbox {
+  height: 30px;
+  width: 30px;
+}
+.PodcastListItemText {
+  padding-left: 10px;
+}
+@media (max-width: 1100px) {
+  .CardContainer {
+    flex-direction: column;
   }
 }
