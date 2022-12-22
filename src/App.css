@@ -29,6 +29,8 @@
   max-height: 585px;
   max-width: 585px;
   overflow: hidden;
+  animation-duration: 2s;
+  animation-name: SlideToLeft;
 }
 .podcastImageImg {
   height: 100%;
@@ -47,19 +49,30 @@
   justify-content: space-evenly;
   align-items: flex-start;
   padding-left: 5%;
+  animation-duration: 2s;
+  animation-name: SlideToRigth;
 }
 .PodcastListTitle {
   width: 80%;
   text-align: left;
 }
-.PodcastListItem {
+.PodcastListItemUnchecked {
   width: auto;
   display: flex;
   justify-content: left;
   align-items: center;
 }
-.PodcastListItem:hover,
-.PodcastListItem:focus {
+.PodcastListItemChecked {
+  color: blue;
+  width: auto;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.PodcastListItemUnchecked:hover,
+.PodcastListItemUnchecked:focus,
+.PodcastListItemChecked:hover,
+.PodcastListItemChecked:focus {
   cursor: pointer;
   text-decoration: underline;
 }
@@ -73,5 +86,21 @@
 @media (max-width: 1100px) {
   .CardContainer {
     flex-direction: column;
+  }
+}
+@keyframes SlideToLeft {
+  from {
+    transform: translateX(200px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+@keyframes SlideToRigth {
+  from {
+    transform: translateX(-200px);
+  }
+  to {
+    transform: translateX(0px);
   }
 }
