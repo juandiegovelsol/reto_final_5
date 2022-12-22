@@ -66,7 +66,9 @@ function App() {
           <img src={podcastcover} className="PodcastImageImg" alt="Cover"></img>
         </aside>
         <aside className="PodcastList">
-          <h1 className="PodcastListTitle">Listen to...</h1>
+          <h1 className="PodcastListTitle">
+            LISTEN TO ALL THE COMPRESSED.FM EPISODES
+          </h1>
           {podcastItem.map((item, index) => {
             return (
               <ul key={item.key} className={item.style}>
