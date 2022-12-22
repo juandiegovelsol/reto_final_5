@@ -31,7 +31,7 @@
   max-height: 585px;
   max-width: 585px;
   overflow: hidden;
-  animation-duration: 2s;
+  animation-duration: 3s;
   animation-name: SlideToLeft;
   z-index: 2;
   filter: drop-shadow(0px 5.40459px 32.4276px #453f3f);
@@ -53,7 +53,7 @@
   justify-content: space-evenly;
   align-items: flex-start;
   padding: 3% 0px 1% 5%;
-  animation-duration: 2s;
+  animation-duration: 3s;
   animation-name: SlideToRigth;
   z-index: 1;
 }
@@ -99,7 +99,7 @@
 }
 @keyframes SlideToLeft {
   from {
-    transform: translateX(200px);
+    transform: translateX(250px);
   }
   to {
     transform: translateX(0px);
@@ -107,7 +107,7 @@
 }
 @keyframes SlideToRigth {
   from {
-    transform: translateX(-200px);
+    transform: translateX(-250px);
   }
   to {
     transform: translateX(0px);
