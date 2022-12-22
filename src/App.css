@@ -17,29 +17,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   height: 90%;
-  width: 90%;
+  width: 1100px;
   font-family: "Nunito Sans";
 }
 .PodcastImage {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 95%;
-  width: 50%;
-  max-height: 585px;
-  max-width: 585px;
+  max-width: 50%;
+  height: auto;
+  width: 585px;
   overflow: hidden;
-  animation-duration: 3s;
+  animation-duration: 1s;
   animation-name: SlideToLeft;
   z-index: 2;
   filter: drop-shadow(0px 5.40459px 32.4276px #453f3f);
 }
-.podcastImageImg {
-  height: 100%;
-  width: 100%;
-  object-fit: scale-down;
+.PodcastImageImg {
+  height: auto;
 }
 .PodcastList {
   height: 90%;
@@ -53,7 +49,7 @@
   justify-content: space-evenly;
   align-items: flex-start;
   padding: 3% 0px 1% 5%;
-  animation-duration: 3s;
+  animation-duration: 1s;
   animation-name: SlideToRigth;
   z-index: 1;
 }
@@ -96,6 +92,54 @@
   .CardContainer {
     flex-direction: column;
   }
+  .PodcastImage {
+    max-height: 50%;
+    width: auto;
+    height: 500px;
+    width: 500px;
+    animation-name: SlideToTop;
+    overflow: visible;
+  }
+  .PodcastImageImg {
+    max-height: 100%;
+    width: auto;
+  }
+  .PodcastList {
+    height: 50%;
+    width: 100%;
+    max-height: 400px;
+    max-width: 400px;
+    border-radius: 0px 0px 25px 25px;
+    padding: 30px 0px 7px 45px;
+    animation-name: SlideToBottom;
+  }
+  .PodcastListItemCheckbox {
+    height: 25px;
+    width: 25px;
+  }
+}
+@media (max-width: 600px) {
+  .PodcastImage {
+    height: 350px;
+    width: 350px;
+  }
+  .PodcastList {
+    max-height: 310px;
+    max-width: 310px;
+    border-radius: 0px 0px 20px 20px;
+    padding: 25px 0px 4px 30px;
+  }
+  .PodcastListTitle {
+    font-size: 10px;
+  }
+  .PodcastListItemText {
+    padding-left: 10px;
+    font-size: 12px;
+  }
+  .PodcastListItemCheckbox {
+    height: 20px;
+    width: 20px;
+  }
 }
 @keyframes SlideToLeft {
   from {
@@ -111,5 +155,21 @@
   }
   to {
     transform: translateX(0px);
+  }
+}
+@keyframes SlideToTop {
+  from {
+    transform: translateY(200px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+@keyframes SlideToBottom {
+  from {
+    transform: translateY(-200px);
+  }
+  to {
+    transform: translateY(0px);
   }
 }
