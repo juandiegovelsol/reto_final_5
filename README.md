@@ -1,70 +1,145 @@
-# Getting Started with Create React App
+## Make It Real - Profile Card Component
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the final project of the Make It Real Onboarding program.
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Solution Screenshot](#solution-screenshot)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### The challenge
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Users should be able to:
 
-### `npm test`
+- See the list of podcast episodes
+- Checking off an episode will mark the episode as watched and will strike-through the title
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Solution Screenshot
 
-### `npm run build`
+![Fullsize screen](./src/images/desktop-ss.png)
+![Mobile screen size](./src/images/mobile-ss.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## My process
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Built with
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React / React hooks
+- Handle Click events
+- Flexbox
+- Semantic HTML5
+- keyframes
 
-### `npm run eject`
+### What I learned
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+In this project it was learned how to bluid a React layout using a <useState()> hook for setting Array/Object's properties.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```js
+const [podcastItem, setPodcastItem] = useState([
+  {
+    key: "1",
+    text: "Trailer",
+    box: uncheckedBox,
+    style: "PodcastListItemUnchecked",
+  },
+  /*... Other objects ...*/
+  {
+    key: "6",
+    text: "Freelancing (Part 1)",
+    box: uncheckedBox,
+    style: "PodcastListItemUnchecked",
+  },
+]);
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This is how to Set Array/Objects's properties handling Click/Unclick events
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```js
+{
+  podcastItem.map((item, index) => {
+    return (
+      <ul key={item.key} className={item.style}>
+        <img
+          src={item.box}
+          onClick={handleUnClick(index)}
+          className="PodcastListItemCheckbox"
+          alt="Checkbox"
+        ></img>
+        <p onClick={handleClick(index)} className="PodcastListItemText">
+          {item.key} || {item.text}
+        </p>
+      </ul>
+    );
+  });
+}
+```
 
-## Learn More
+```js
+const handleClick = (index) => () => {
+  let newPodcastItem = [...podcastItem];
+  if (newPodcastItem[index].box === uncheckedBox) {
+    newPodcastItem[index].box = checkedBox;
+    newPodcastItem[index].style = "PodcastListItemChecked";
+  }
+  setPodcastItem(newPodcastItem);
+};
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```js
+const handleUnClick = (index) => () => {
+  let newPodcastItem = [...podcastItem];
+  if (newPodcastItem[index].box === checkedBox) {
+    newPodcastItem[index].box = uncheckedBox;
+    newPodcastItem[index].style = "PodcastListItemUnchecked";
+  }
+  setPodcastItem(newPodcastItem);
+};
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This is how to animate a Layout using Keyframes in CSS
 
-### Code Splitting
+```CSS
+.PodcastImage {
+  animation-duration: 2s;
+  animation-name: SlideToLeft;
+  z-index: 2;
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```CSS
+@keyframes SlideToLeft {
+  from {
+    transform: translateX(250px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+```
 
-### Analyzing the Bundle Size
+### Continued development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+It will be nice to continue developing the layout in order to access a real podcast episode from the webpage.
 
-### Making a Progressive Web App
+### Useful resources
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- [useState resourse](https://reactjs.org/docs/hooks-state.html) - This helped me figuring out how to use this property.
+- [Handle Click functions](https://upmostly.com/tutorials/react-onclick-event-handling-with-examples) - This resourse helped figuring out how handle click events.
+- [Keyframes resource](https://www.w3schools.com/cssref/css3_pr_animation-keyframes.php#:~:text=Definition%20and%20Usage,of%20CSS%20styles%20many%20times.) - This resourse helped figuring out how to use Keyframes.
 
-### Advanced Configuration
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Github - [Juan Velasco](https://github.com/juandiegovelsol)
 
-### Deployment
+## Acknowledgments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Kudos to our friends and mentors: Sergio Jaramilo and Daniel Espitia.
